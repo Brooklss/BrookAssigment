@@ -65,23 +65,23 @@ export function HomePage() {
   return (
     <section className="page">
       <div className="page-heading">
-        <h1>Product Catalog</h1>
-        <p>Discover products, filter instantly, and add items to your cart.</p>
+        <h1>Geek Inventory</h1>
+        <p>Filter tools, hardware, and hacker desk essentials in real time.</p>
       </div>
 
       <section className="toolbar card">
         <label>
-          Search by name
+          Search modules
           <input
             type="search"
             value={search}
             onChange={(event) => setSearch(event.target.value)}
-            placeholder="Type product name..."
+            placeholder="Try: keyboard, CTF, Linux..."
           />
         </label>
 
         <label>
-          Filter by category
+          Filter by domain
           <select value={category} onChange={(event) => setCategory(event.target.value)}>
             {categories.map((option) => (
               <option key={option} value={option}>
@@ -96,7 +96,7 @@ export function HomePage() {
 
       {loading ? <p className="status">Loading products...</p> : null}
       {!loading && filteredProducts.length === 0 ? (
-        <p className="status">No products match your current search/filter.</p>
+        <p className="status">No modules match your current query parameters.</p>
       ) : null}
 
       <div className="product-grid">

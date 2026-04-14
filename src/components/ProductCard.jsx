@@ -14,6 +14,7 @@ export function ProductCard({ product }) {
         <h3>
           <Link to={`/product/${product.id}`}>{product.name}</Link>
         </h3>
+        <p className="sku">SKU: CS-{String(product.id).padStart(3, '0')}</p>
         <p className="category-pill">{product.category}</p>
         <p className="price">${product.price.toFixed(2)}</p>
         <p className={product.stock > 0 ? 'stock in-stock' : 'stock out-of-stock'}>
@@ -27,7 +28,7 @@ export function ProductCard({ product }) {
         onClick={() => addToCart(product, 1)}
         disabled={product.stock === 0}
       >
-        Add to Cart
+        Deploy to Cart
       </button>
     </article>
   )

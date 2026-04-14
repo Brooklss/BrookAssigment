@@ -7,10 +7,13 @@ export function Header() {
   return (
     <header className="site-header">
       <div className="brand-row">
-        <Link to="/" className="brand">
-          Brook's Voult
-        </Link>
-        <p className="tagline">Minimal e-commerce dashboard</p>
+        <div>
+          <p className="terminal-label">root@brooks-voult:~$ storefront --boot</p>
+          <Link to="/" className="brand">
+            Brook's Vault
+          </Link>
+        </div>
+        <p className="tagline">Geek gear for coders, makers, and security nerds.</p>
       </div>
 
       <nav className="nav-links" aria-label="Main navigation">
