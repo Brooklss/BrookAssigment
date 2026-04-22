@@ -1,18 +1,27 @@
-# React + Vite
+Developer Name: Brook Lemma Zemedu
+Developer ID: HN6292
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+How to Run the Project
+1. Open terminal in the project root folder.
+2. Install dependencies: npm install
+3. Start development server: npm run dev
+4. Build production bundle: npm run build
+5. Preview production bundle (optional): npm run preview
 
-Currently, two official plugins are available:
+Caching Implementation Explanation
+1. Product data cache:
+   - Product source data is hardcoded in src/data/products.js.
+   - On first load (or after cache expiry), src/utils/productCache.js simulates a 500ms network delay using setTimeout.
+   - Products are cached in localStorage using key se333_products_cache with { products, timestamp }.
+   - Cache TTL is 5 minutes. If cache age is less than 5 minutes, products load instantly from localStorage.
+2. Search/filter cache:
+   - Last 3 unique searches are stored in localStorage key se333_recent_searches.
+   - Recent search suggestions are displayed on Home page and are clickable.
+   - Current search text and category filter are stored per browser session in sessionStorage key se333_session_filters.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
-
-## React Compiler
-
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
-
-Note: This will impact Vite dev & build performances.
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Assumptions Made
+1. Product stock is static and hardcoded (no live inventory updates).
+2. Cart quantity cannot exceed product stock.
+3. Orders are persisted only in localStorage for this frontend simulation.
+4. "Per user session" filter cache is implemented using sessionStorage.
+5. Placeholder image requirement is fulfilled using a local SVG file at /placeholder.svg.

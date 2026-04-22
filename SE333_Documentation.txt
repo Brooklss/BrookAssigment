@@ -1,5 +1,5 @@
-Developer Name: [Your Name]
-Developer ID: [Your Student ID]
+Developer Name: Brook Lemma Zemedu
+Developer ID: HN6292
 
 How to Run the Project
 1. Open terminal in the project root folder.
